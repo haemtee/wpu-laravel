@@ -1,13 +1,13 @@
 @extends('layouts.main')
 
 @section('container')
-    <h1 class="mt-4">My Laravel Blogs</h1>
+    <h1 class="my-4">My Laravel Blogs</h1>
 
     @foreach ($posts as $post)
-        <a href="post/{{ $post['id'] }}">
-            <h2> {{ $post['title'] }} </h2>
+        <a href="post/{{ $post->slug }}">
+            <h2> {{ $post->title }} </h2>
         </a>
-        <p>{{ $post['body'] }}</p>
-        <p class="d-inline">Written by : {{ $post['author'] }}</p>
+        <p>{{ $post->excerpt }}</p>
+        <p class="d-inline">Written at : {{ $post->created_at }}</p>
     @endforeach
 @endsection

@@ -37,4 +37,4 @@ Route::get('/about', function () {
 });
 
 
-Route::get('/post/{id}', [PostController::class, 'show']);
+Route::get('/post/{post:slug}', [PostController::class, 'show']);

@@ -16,11 +16,11 @@ class PostController extends Controller
         return view('posts', $data);
     }
 
-    public function show($id)
+    public function show(Post $post)
     {
         $data = [
-            'title' => Post::find($id)['title'],
-            'post' => Post::find($id),
+            'title' => $post->title,
+            'post' => $post,
         ];
         return view('post', $data);
     }

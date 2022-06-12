@@ -2,7 +2,7 @@
 
 @section('container')
 
-<h1 class="mt-4">Hello, world!</h1>
+<h1 class="my-4">Hello, world!</h1>
 @endsection
     
 
