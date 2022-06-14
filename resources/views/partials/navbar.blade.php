@@ -11,7 +11,7 @@
                     <a class="nav-link {{ ($title == "Home") ? "active" : "" }}"  href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ ($title == "Blogs") ? "active" : "" }}" href="/blog">Blogs</a>
+                    <a class="nav-link {{ (Request::url() == "http://belajar-laravel.test/blog") ? "active" : "" }}" href="/blog">Blogs</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ ($title == "About") ? "active" : "" }}" href="/about">About</a>
