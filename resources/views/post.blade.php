@@ -1,13 +1,23 @@
 @extends('layouts.main')
 
 @section('container')
-    <h1 class="my-4"> {{ $post->title }} </h1>
+    <div class="container my-4">
+        <div class="row justify-content-center mb-1">
+            <div class="col-md-8">
+                <h1> {{ $post->title }} </h1>
+                <p> By : <a href="/posts?author={{ $post->author->username }}" class="text-decoration-none">
+                        {{ $post->author->name }}</a> in
+                    <a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none">
+                        {{ $post->category->name }}
+                    </a>
+                </p>
 
-    <p> By : <a href="/authors/{{ $post->author->username }}" class="text-decoration-none"> {{ $post->author->name }}</a> in
-        <a href="/categories/{{ $post->category->slug }}" class="text-decoration-none"> {{ $post->category->name }}
-        </a>
-
-    <h5> Written at : {{ $post->created_at }} </h5>
-    {!! $post->body !!}
-    <a href="/blog" class="mt-3 d-block text-decoration-none">Back to blog</a>
+                <img src="https://source.unsplash.com/1400x400?{{ $post->category->name }}" alt="https://source.unsplash.com/500x300?{{ $post->category->name }}" class="img-fluid rounded-2">
+                <article class="my-3 fs-5">
+                {!! $post->body !!}
+                </article>
+                <a href="/posts" class="mt-3 d-block text-decoration-none">Back to blog</a>
+            </div>
+        </div>
+    </div>
 @endsection

@@ -20,20 +20,20 @@ use App\Http\Controllers\PostController;
 Route::get('/', function () {
     $data = [
         'title' => 'Home',
+        'active' => 'home',
 
     ];
     return view('home', $data);
 });
 
-Route::get('/blog', [PostController::class, 'index']);
+Route::get('/posts', [PostController::class, 'index']);
 
 
 Route::get('/about', function () {
     $data = [
-        'title' => 'About',
-        "name" => "Kevin Alexander",
-        "email" => "kevin@alexander.com",
-        "img" => "goku.jpg"
+        'title' => 'All Authors',
+        'active' => 'about',
+        "authors" => User::all(),
     ];
     return view('about', $data);
 });
@@ -44,17 +44,8 @@ Route::get('/post/{post:slug}', [PostController::class, 'show']);
 Route::get('/categories', function(){
     $data = [
         'title' => 'Categories',
+        'active' => 'categories',
         'categories' => Category::all(),
     ];
     return view('categories', $data);
-});
-
-Route::get('/categories/{category:slug}', [PostController::class, 'category']);
-
-Route::get('/authors/{author:username}', function(User $author){
-    $data = [
-        'title' => "Post By Author: $author->name",
-        'posts' => $author->posts,
-    ];
-    return view('posts', $data);
 });
