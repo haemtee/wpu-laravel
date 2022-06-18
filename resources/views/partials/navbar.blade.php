@@ -21,17 +21,25 @@
                     <a class="nav-link {{ $active == 'about' ? 'active' : '' }}" href="/about">About</a>
                 </li>
             </ul>
+            <ul class="navbar-nav my-auto ms-auto">
+                <form action="/posts"  class="d-flex">
+                    @if (request('category'))
+                        <input type="hidden" name="category" value="{{ request('category') }}">
+                    @endif
+                    @if (request('author'))
+                        <input type="hidden" name="author" value="{{ request('author') }}">
+                    @endif
+                    <input class="form-control me-2 d-inline" type="input" placeholder="Search.." name="search"
+                        value="{{ request('search') }}">
+                    <button class="btn btn-outline-secondary d-inline" type="submit">Search</button>
+                </form>
+                <li class="nav-item" style="margin-left: 50px;">
+                    <a class="nav-link  {{ $active == 'login' ? 'active' : '' }}" href="/login"><i class="bi bi-person px-2"></i>Login</a>
+                </li>
+
+            </ul>
+            {{-- <ul class="navbar-nav ms-auto">
+            </ul> --}}
         </div>
-        <form action="/posts" class="d-flex col-md-4">
-            @if (request('category'))
-                <input type="hidden" name="category" value="{{ request('category') }}">
-            @endif
-            @if (request('author'))
-                <input type="hidden" name="author" value="{{ request('author') }}">
-            @endif
-            <input class="form-control me-2" type="input" placeholder="Search.." name="search"
-                value="{{ request('search') }}">
-            <button class="btn btn-outline-secondary" type="submit">Search</button>
-        </form>
     </div>
 </nav>
