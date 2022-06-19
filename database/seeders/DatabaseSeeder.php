@@ -16,10 +16,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(2)->create();
+        User::create([
+            'name' => 'Hermanto Yap',
+            'username' => 'hermanto',
+            'email' => 'haemtee@gmail.com',
+            'password' => bcrypt('password'),
+        ]);
+        User::factory(3)->create();
 
         Post::factory(20)->create();
-     
+
         Category::create([
             'name' => 'Web Programming',
             'slug' => 'web-programming',
@@ -29,7 +35,9 @@ class DatabaseSeeder extends Seeder
             'name' => 'Web Design',
             'slug' => 'web-design',
         ]);
-
-        
+        Category::create([
+            'name' => 'Personal',
+            'slug' => 'personal',
+        ]);
     }
 }

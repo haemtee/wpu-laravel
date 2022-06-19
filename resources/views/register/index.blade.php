@@ -3,7 +3,7 @@
 
 @section('container')
     <div class="row justify-content-center my-4 py-5">
-        <div class="col-lg-6 p-5 myshadow bg-white">
+        <div class="col-lg-6 p-5 myshadow bg-white rounded-5">
             <div class="text-center py-3">
                 <img src="/img/svg/register.svg" alt="Register" width="20%" class="img-fluid">
             </div>

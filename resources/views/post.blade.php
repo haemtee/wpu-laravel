@@ -12,7 +12,14 @@
                     </a>
                 </p>
 
-                <img src="https://source.unsplash.com/1400x400?{{ $post->category->name }}" alt="https://source.unsplash.com/500x300?{{ $post->category->name }}" class="img-fluid rounded-2">
+                @if ($post->image)
+                <div style="max-height: 350px; overflow:hidden;">
+                    <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" class="img-fluid d-block">
+                </div>
+                @else
+                    <img src="https://source.unsplash.com/1400x400?{{ $post->category->name }}"
+                        alt="{{ $post->category->name }}" class="img-fluid rounded-2">
+                @endif
                 <article class="my-3 fs-5">
                 {!! $post->body !!}
                 </article>
